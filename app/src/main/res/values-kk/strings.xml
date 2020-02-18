@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">Weather Astana</string>
+    <string name="loading">Пожалуйста подождите...</string>
+    <string name="nav_item_qr">QR сканерлеу</string>
+    <string name="nav_item_main">Каталог</string>
+    <string name="nav_item_settings">Баптау</string>
+    <string name="nav_item_about">Қолданба жайында</string>
+    <string name="start">Начать</string>
+    <string name="start_kk">Бастау</string>
+    <string name="start_en">Start</string>
+    <string name="catalog">Каталог</string>
+    <string name="language_selection">Тілді таңдау</string>
+    <string name="about_app">Қолданба жайында</string>
+    <string name="overview">Шолу</string>
+    <string name="exhibits">Экспонаттар</string>
+    <string name="find_exhibit">Экспонатты іздеу</string>
+    <string name="point_camera_at_exhibit">QR кодты сканерлеу үшін
+        \n
+        камераны экспонатқа қаратыңыз</string>
+    <string name="popular">Танымал</string>
+    <string name="russian">Русский</string>
+    <string name="kazakh">Қазақша</string>
+    <string name="english">English</string>
+    <string name="rate_exhibit">Экспонатқа баға беріңіз</string>
+    <string name="text_continue">Жалғастыру</string>
+    <string name="select_rating">Баға беріңіз</string>
+    <string name="camera">Камера</string>
+    <string name="camera_permission">QR кодты сканерлеу үшін  камераға қатынасты рұқсат ету қажет</string>
+    <string name="socket_timeout_exception">Превышено время ожидания сервера</string>
+    <string name="no_internet_connection">Нет интернет соединения</string>
+</resources>

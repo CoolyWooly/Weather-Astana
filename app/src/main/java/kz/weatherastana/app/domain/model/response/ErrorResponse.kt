@@ -1,0 +1,5 @@
+package kz.weatherastana.app.domain.model.response
+
+data class ErrorResponse(
+    val error: String?
+)

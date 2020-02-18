@@ -46,7 +46,7 @@ class HomeFragment : DaggerFragment(), HomeAdapter.OnDayClickListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        (activity as MainActivity).setToolbarTitle(getString(R.string.nav_item_main))
+        (activity as MainActivity).setToolbarTitle(getString(R.string.app_name))
         initView()
         with(viewModel) {
             searchString.observe(viewLifecycleOwner, Observer {

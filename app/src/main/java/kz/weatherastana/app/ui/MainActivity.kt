@@ -1,13 +1,11 @@
 package kz.weatherastana.app.ui
 
-import android.content.Context
 import android.os.Bundle
 import androidx.navigation.Navigation
 import androidx.navigation.ui.NavigationUI
 import dagger.android.support.DaggerAppCompatActivity
 import kotlinx.android.synthetic.main.toolbar_main.*
 import kz.weatherastana.app.R
-import kz.weatherastana.app.utils.setLocale
 
 class MainActivity : DaggerAppCompatActivity() {
 
@@ -31,8 +29,4 @@ class MainActivity : DaggerAppCompatActivity() {
     }
 
     override fun onSupportNavigateUp() = Navigation.findNavController(this, R.id.container).navigateUp()
-
-    override fun attachBaseContext(newBase: Context?) {
-        super.attachBaseContext(setLocale(newBase))
-    }
 }

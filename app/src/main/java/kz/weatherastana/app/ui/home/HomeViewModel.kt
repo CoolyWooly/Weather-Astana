@@ -20,16 +20,16 @@ class HomeViewModel @Inject constructor(
     val searchString: MutableLiveData<String> by lazy { MutableLiveData<String>() }
 
     init {
-        getWeather(7)
+        getWeather()
     }
 
-    fun getWeather(cnt: Int) {
+    fun getWeather() {
         launchIO {
             isRefreshing.postValue(true)
-            val weatherResponse = baseCloudRepository.getWeather(cnt)
+            val weatherResponse = baseCloudRepository.getWeather()
             when (weatherResponse) {
                 is ResultWrapper.Error -> error.postValue(weatherResponse)
-                is ResultWrapper.Success -> daysData.postValue(weatherResponse.value.list)
+                is ResultWrapper.Success -> daysData.postValue(weatherResponse.value.daily.data)
             }
             isRefreshing.postValue(false)
         }

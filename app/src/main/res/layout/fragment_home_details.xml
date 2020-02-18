@@ -35,7 +35,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@{item.clouds.toString()}"
+                    android:text="@{item.icon}"
                     android:textColor="@color/color_363636"
                     android:textSize="16sp"
                     android:textStyle="bold"
@@ -54,7 +54,7 @@
                     android:id="@+id/tv_year"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@{item.clouds.toString()}"
+                    android:text="@{item.icon}"
                     android:textColor="@color/color_363636"
                     android:textSize="14sp"
                     tools:text="12-12-19" />
@@ -64,7 +64,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
-                    android:text="@{item.clouds.toString()}"
+                    android:text="@{item.icon}"
                     android:textColor="@color/color_363636"
                     android:textSize="14sp"
                     tools:text="author" />
@@ -87,7 +87,7 @@
                 android:layout_marginRight="8dp"
                 android:textColor="#424242"
                 android:textSize="16sp"
-                app:set_html="@{item.clouds.toString()}"
+                app:set_html="@{item.icon}"
                 tools:text="description" />
 
         </LinearLayout>

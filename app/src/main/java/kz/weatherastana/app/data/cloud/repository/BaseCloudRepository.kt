@@ -5,6 +5,6 @@ import kz.weatherastana.app.domain.model.WeatherResponse
 
 interface BaseCloudRepository {
 
-    suspend fun getWeather(cnt: Int): ResultWrapper<WeatherResponse>
+    suspend fun getWeather(): ResultWrapper<WeatherResponse>
 
 }

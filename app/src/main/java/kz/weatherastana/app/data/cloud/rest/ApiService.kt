@@ -2,14 +2,9 @@ package kz.weatherastana.app.data.cloud.rest
 
 import kz.weatherastana.app.domain.model.WeatherResponse
 import retrofit2.http.GET
-import retrofit2.http.Query
 
 interface ApiService {
 
-    @GET("data/2.5/forecast/daily")
-    suspend fun getWeather(
-        @Query("id") id: Int,
-        @Query("cnt") cnt: Int,
-        @Query("appid") appid: String
-    ): WeatherResponse
+    @GET("forecast/81285ced59f7eb13d017d80588ecfe93/51.169392,71.449074")
+    suspend fun getWeather(): WeatherResponse
 }

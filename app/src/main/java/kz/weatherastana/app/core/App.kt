@@ -1,12 +1,10 @@
 package kz.weatherastana.app.core
 
 import android.content.Context
-import android.content.res.Configuration
 import androidx.multidex.MultiDex
 import dagger.android.AndroidInjector
 import dagger.android.DaggerApplication
 import kz.weatherastana.app.di.component.DaggerCoreComponent
-import kz.weatherastana.app.utils.setLocale
 
 class App : DaggerApplication() {
 
@@ -27,12 +25,7 @@ class App : DaggerApplication() {
     }
 
     override fun attachBaseContext(base: Context?) {
-        super.attachBaseContext(setLocale(base))
+        super.attachBaseContext(base)
         MultiDex.install(this)
-    }
-
-    override fun onConfigurationChanged(newConfig: Configuration) {
-        super.onConfigurationChanged(newConfig)
-        setLocale(this)
     }
 }

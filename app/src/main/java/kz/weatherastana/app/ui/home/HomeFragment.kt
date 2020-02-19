@@ -1,5 +1,9 @@
 package kz.weatherastana.app.ui.home
 
+import android.app.Dialog
+import android.content.Context
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,11 +12,11 @@ import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import dagger.android.support.DaggerFragment
 import kotlinx.android.synthetic.main.fragment_home.*
 import kz.weatherastana.app.R
+import kz.weatherastana.app.databinding.DialogDayBinding
 import kz.weatherastana.app.databinding.FragmentHomeBinding
 import kz.weatherastana.app.domain.model.DayModel
 import kz.weatherastana.app.domain.model.response.ErrorStatus
@@ -86,9 +90,18 @@ class HomeFragment : DaggerFragment(), HomeAdapter.OnDayClickListener {
     }
 
     override fun onDayClick(dayModel: DayModel) {
-        val action = HomeFragmentDirections.actionNavItemMainToFragmentHomeDetails()
-        action.dayModel = dayModel
-        val navController = Navigation.findNavController(view!!)
-        navController.navigate(action)
+        showRateAlertDialog(context!!, dayModel)
+    }
+
+    private fun showRateAlertDialog(context: Context, dayModel: DayModel) {
+        val dialog = Dialog(context)
+        dialog.setContentView(R.layout.dialog_day)
+        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+
+        val binding = DataBindingUtil.inflate<DialogDayBinding>(LayoutInflater.from(getContext()), R.layout.dialog_day, null, false)
+        dialog.setContentView(binding.root)
+        binding.item = dayModel
+
+        dialog.show()
     }
 }

@@ -2,6 +2,9 @@ package kz.weatherastana.app.domain.model
 
 import com.google.gson.annotations.SerializedName
 import java.io.Serializable
+import java.text.SimpleDateFormat
+import java.util.*
+import kotlin.math.roundToInt
 
 data class DayModel (
     @SerializedName("time") val time : Int,
@@ -44,4 +47,43 @@ data class DayModel (
     @SerializedName("apparentTemperatureMinTime") val apparentTemperatureMinTime : Int,
     @SerializedName("apparentTemperatureMax") val apparentTemperatureMax : Double,
     @SerializedName("apparentTemperatureMaxTime") val apparentTemperatureMaxTime : Int
-) : Serializable
+) : Serializable {
+
+    fun getDate() : String {
+        val date = Date(time * 1000L)
+        val jdf = SimpleDateFormat("dd.MM EEEE", Locale.getDefault())
+        return jdf.format(date)
+    }
+
+    fun getSunrise() : String {
+        val date = Date(sunriseTime * 1000L)
+        val jdf = SimpleDateFormat("HH:mm", Locale.getDefault())
+        return jdf.format(date)
+    }
+
+    fun getSunset() : String {
+        val date = Date(sunsetTime * 1000L)
+        val jdf = SimpleDateFormat("HH:mm", Locale.getDefault())
+        return jdf.format(date)
+    }
+
+    fun getTemperatureHighCel() : String {
+        return "${getCel(temperatureHigh)}°C"
+    }
+
+    fun getTemperatureApparentHighCel() : String {
+        return "${getCel(apparentTemperatureHigh)}°C"
+    }
+
+    fun getTemperatureMinCel() : String {
+        return "${getCel(temperatureLow)}°C"
+    }
+
+    fun getTemperatureApparentMinCel() : String {
+        return "${getCel(apparentTemperatureLow)}°C"
+    }
+
+    private fun getCel(fah: Double) : Int {
+        return ((fah - 32.0) * 5/9).roundToInt()
+    }
+}

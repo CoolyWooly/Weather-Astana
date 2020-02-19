@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.RecyclerView
 import kz.weatherastana.app.BR.item
-import kz.weatherastana.app.databinding.ItemExhibitBinding
+import kz.weatherastana.app.databinding.ItemDayBinding
 import kz.weatherastana.app.domain.model.DayModel
 import kz.weatherastana.app.ui.DataBindingViewHolder
 
@@ -21,7 +21,7 @@ class HomeAdapter(
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SimpleHolder {
-        val binding = ItemExhibitBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val binding = ItemDayBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return SimpleHolder(binding)
     }
 

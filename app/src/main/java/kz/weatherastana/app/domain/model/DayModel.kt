@@ -83,6 +83,14 @@ data class DayModel (
         return "${getCel(apparentTemperatureLow)}°C"
     }
 
+    fun getWindMetersSec() : String {
+        return "${String.format("%.1f", windGust / 2.263)} м/с"
+    }
+
+    fun getMoon() : String {
+        return "${(moonPhase * 100).roundToInt()}%"
+    }
+
     private fun getCel(fah: Double) : Int {
         return ((fah - 32.0) * 5/9).roundToInt()
     }

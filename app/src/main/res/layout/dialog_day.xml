@@ -105,7 +105,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Максимальная температура"
+                android:text="Макс температура"
                 android:textColor="@color/color_363636"
                 android:textSize="14sp"
                 android:textStyle="bold" />
@@ -130,7 +130,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Максимальная температура по ощущениям"
+                android:text="Макс температура по ощущениям"
                 android:textColor="@color/color_363636"
                 android:textSize="14sp"
                 android:textStyle="bold" />
@@ -155,7 +155,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Минимальная температура"
+                android:text="Мин температура"
                 android:textColor="@color/color_363636"
                 android:textSize="14sp"
                 android:textStyle="bold" />
@@ -180,7 +180,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Минимальная температура по ощущениям"
+                android:text="Мин температура по ощущениям"
                 android:textColor="@color/color_363636"
                 android:textSize="14sp"
                 android:textStyle="bold" />
@@ -194,6 +194,55 @@
                 tools:text="12" />
         </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Ветер"
+                android:textColor="@color/color_363636"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="@{item.getWindMetersSec()}"
+                android:textSize="14sp"
+                tools:text="12" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Луна"
+                android:textColor="@color/color_363636"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="@{item.getMoon()}"
+                android:textSize="14sp"
+                tools:text="12" />
+        </LinearLayout>
 
     </LinearLayout>
 </layout>

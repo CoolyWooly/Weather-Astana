@@ -37,7 +37,7 @@ class HomeAdapter(
 
     fun add(list: List<DayModel>) {
         items.addAll(list)
-        notifyDataSetChanged()
+        notifyItemRangeInserted(0, list.count())
     }
 
     fun clear() {

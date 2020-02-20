@@ -4,12 +4,10 @@ import androidx.lifecycle.MutableLiveData
 import kz.weatherastana.app.core.BaseViewModel
 import kz.weatherastana.app.data.cloud.ResultWrapper
 import kz.weatherastana.app.data.cloud.repository.BaseCloudRepository
-import kz.weatherastana.app.data.db.PrefsImpl
 import kz.weatherastana.app.domain.model.DayModel
 import javax.inject.Inject
 
 class HomeViewModel @Inject constructor(
-    private val prefsImpl: PrefsImpl,
     private val baseCloudRepository: BaseCloudRepository
 ) : BaseViewModel() {
 
@@ -17,7 +15,6 @@ class HomeViewModel @Inject constructor(
     val isRefreshing: MutableLiveData<Boolean> by lazy { MutableLiveData<Boolean>(false) }
     val daysData: MutableLiveData<List<DayModel>> by lazy { MutableLiveData<List<DayModel>>() }
     val error: MutableLiveData<ResultWrapper.Error> by lazy { MutableLiveData<ResultWrapper.Error>() }
-    val searchString: MutableLiveData<String> by lazy { MutableLiveData<String>() }
 
     init {
         getWeather()

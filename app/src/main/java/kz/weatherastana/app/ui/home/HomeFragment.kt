@@ -12,7 +12,6 @@ import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.LinearLayoutManager
 import dagger.android.support.DaggerFragment
 import kotlinx.android.synthetic.main.fragment_home.*
 import kz.weatherastana.app.R
@@ -53,15 +52,10 @@ class HomeFragment : DaggerFragment(), HomeAdapter.OnDayClickListener {
         (activity as MainActivity).setToolbarTitle(getString(R.string.app_name))
         initView()
         with(viewModel) {
-            searchString.observe(viewLifecycleOwner, Observer {
-                adapter.clear()
-                getWeather()
-            })
             daysData.observe(viewLifecycleOwner, Observer {
                 ll_connection_error.visibility = View.GONE
-                if (!it.isNullOrEmpty()) {
-                    adapter.add(it)
-                }
+                adapter.add(it)
+                rv_main_home.scheduleLayoutAnimation()
             })
             error.observe(viewLifecycleOwner, Observer {
                 if (listOf(ErrorStatus.NO_CONNECTION, ErrorStatus.TIMEOUT).contains(it.status) &&
@@ -80,8 +74,6 @@ class HomeFragment : DaggerFragment(), HomeAdapter.OnDayClickListener {
 
 
     private fun initView() {
-        val mLayoutManager = LinearLayoutManager(context)
-        rv_main_home.layoutManager = mLayoutManager
         rv_main_home.adapter = adapter
         swipe.setOnRefreshListener {
             adapter.clear()
